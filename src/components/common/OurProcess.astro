@@ -54,21 +54,18 @@ const processes = [
   <div class="process-bg-dots"></div>
 
   <h2
-    class="process-title relative z-10 mb-16 text-center text-3xl leading-20 font-bold text-black uppercase md:text-4xl lg:text-5xl xl:text-6xl"
+    class="process-title relative z-10 mb-8 md:mb-16 text-center text-3xl leading-20 font-bold text-black uppercase md:text-4xl lg:text-5xl xl:text-6xl"
   >
     Our <span class="text-gradient-start">Process</span>
   </h2>
 
-  <!-- Process flow line -->
-  <!-- <div class="process-flow-line"></div> -->
-
   <div
-    class="process-grid relative z-10 grid w-full grid-cols-1 justify-between gap-4 md:grid-cols-2 xl:grid-cols-4"
+    class="process-grid relative z-10 grid w-full justify-between gap-3 sm:gap-4 md:gap-6 grid-cols-2 xl:grid-cols-4"
   >
     {
       processes.map((process, idx) => (
         <div class="process-card-wrapper relative">
-          <div class="process-number">{process.number}</div>
+          <div class="process-number hidden xl:flex">{process.number}</div>
           <div class="process-connector" />
           <OurProcessCard
             title={process.title}
@@ -85,6 +82,8 @@ const processes = [
 <script>
   import { gsap } from "../../utils/gsapUtils";
   import { ScrollTrigger } from "../../utils/gsapUtils";
+
+  const isMobile = window.innerWidth < 1280;
 
   document.addEventListener("DOMContentLoaded", function () {
     // Title animation
@@ -111,20 +110,12 @@ const processes = [
       ease: "power2.out",
     });
 
-    // Process flow line animation
-    gsap.from(".process-flow-line", {
-      scaleX: 0,
-      transformOrigin: "left center",
-      duration: 1.5,
-      ease: "power2.inOut",
-    });
-
     // Cards staggered animation
     gsap.from(".process-card-wrapper", {
-      y: 100,
+      y: isMobile ? 50 : 100,
       opacity: 0,
-      duration: 0.8,
-      stagger: 0.05,
+      duration: isMobile ? 0.6 : 0.8,
+      stagger: isMobile ? 0.1 : 0.05,
       ease: "back.out(0.4)",
       scrollTrigger: {
         trigger: ".process-grid",
@@ -133,81 +124,92 @@ const processes = [
       },
     });
 
-    // Numbers animation
-    gsap.from(".process-number", {
-      scale: 0,
-      rotation: -90,
-      opacity: 0,
-      duration: 0.6,
-      stagger: 0.15,
-      delay: 0.5,
-      ease: "back.out(1.7)",
-      scrollTrigger: {
-        trigger: ".process-grid",
-        start: "top 80%",
-        toggleActions: "play none none none",
-      },
-    });
-
-    // Process connectors
-    gsap.from(".process-connector", {
-      width: 0,
-      duration: 1.2,
-      stagger: 0.25,
-      delay: 0.8,
-      ease: "power2.inOut",
-      scrollTrigger: {
-        trigger: ".process-grid",
-        start: "top 80%",
-        toggleActions: "play none none none",
-      },
-    });
-
-    // Hover effects for cards
-    const cards = document.querySelectorAll(".process-card");
-
-    cards.forEach((card) => {
-      card.addEventListener("mouseenter", () => {
-        gsap.to(card, {
-          y: -15,
-          scale: 1.05,
-          boxShadow: "0 20px 40px rgba(128, 103, 206, 0.3)",
-          duration: 0.3,
-        });
-
-        // Subtle rotation of icon
-        const icon = card.querySelector(".process-icon img");
-        if (icon) {
-          gsap.to(icon, {
-            rotation: 10,
-            scale: 1.1,
-            duration: 0.5,
-            ease: "elastic.out(1.2, 0.5)",
-          });
-        }
+    // Desktop-only animations
+    if (!isMobile) {
+      // Process flow line animation
+      gsap.from(".process-flow-line", {
+        scaleX: 0,
+        transformOrigin: "left center",
+        duration: 1.5,
+        ease: "power2.inOut",
       });
 
-      card.addEventListener("mouseleave", () => {
-        gsap.to(card, {
-          y: 0,
-          scale: 1,
-          boxShadow: "0 8px 20px rgba(128, 103, 206, 0.15)",
-          duration: 0.5,
-          ease: "power2.out",
+      // Numbers animation
+      gsap.from(".process-number", {
+        scale: 0,
+        rotation: -90,
+        opacity: 0,
+        duration: 0.6,
+        stagger: 0.15,
+        delay: 0.5,
+        ease: "back.out(1.7)",
+        scrollTrigger: {
+          trigger: ".process-grid",
+          start: "top 80%",
+          toggleActions: "play none none none",
+        },
+      });
+
+      // Process connectors
+      gsap.from(".process-connector", {
+        width: 0,
+        duration: 1.2,
+        stagger: 0.25,
+        delay: 0.8,
+        ease: "power2.inOut",
+        scrollTrigger: {
+          trigger: ".process-grid",
+          start: "top 80%",
+          toggleActions: "play none none none",
+        },
+      });
+    }
+
+    // Hover effects for cards (desktop only)
+    if (!isMobile) {
+      const cards = document.querySelectorAll(".process-card");
+
+      cards.forEach((card) => {
+        card.addEventListener("mouseenter", () => {
+          gsap.to(card, {
+            y: -15,
+            scale: 1.05,
+            boxShadow: "0 20px 40px rgba(128, 103, 206, 0.3)",
+            duration: 0.3,
+          });
+
+          const icon = card.querySelector(".process-icon img");
+          if (icon) {
+            gsap.to(icon, {
+              rotation: 10,
+              scale: 1.1,
+              duration: 0.5,
+              ease: "elastic.out(1.2, 0.5)",
+            });
+          }
         });
 
-        // Reset icon
-        const icon = card.querySelector(".process-icon img");
-        if (icon) {
-          gsap.to(icon, {
-            rotation: 0,
+        card.addEventListener("mouseleave", () => {
+          gsap.to(card, {
+            y: 0,
             scale: 1,
+            boxShadow: "0 8px 20px rgba(128, 103, 206, 0.15)",
             duration: 0.5,
-            ease: "elastic.out(1, 0.5)",
+            ease: "power2.out",
           });
-        }
+
+          const icon = card.querySelector(".process-icon img");
+          if (icon) {
+            gsap.to(icon, {
+              rotation: 0,
+              scale: 1,
+              duration: 0.5,
+              ease: "elastic.out(1, 0.5)",
+            });
+          }
+        });
       });
-    });
+    }
   });
 </script>
 
@@ -262,39 +264,23 @@ const processes = [
     z-index: 0;
   }
 
-  /* Process flow line - horizontal line connecting cards */
-  .process-flow-line {
-    position: absolute;
-    top: 50%;
-    left: 10%;
-    width: 80%;
-    height: 3px;
-    background: linear-gradient(
-      90deg,
-      rgba(157, 126, 255, 0.2),
-      rgba(157, 126, 255, 0.8) 50%,
-      rgba(157, 126, 255, 0.2)
-    );
-    z-index: 1;
-    display: none;
-  }
-
-  @media (min-width: 1280px) {
-    .process-flow-line {
-      display: block;
-    }
-  }
-
   /* Card wrapper styling */
   .process-card-wrapper {
     position: relative;
-    padding-top: 45px;
+    /* ensure wrapper participates in equal-height layout */
+    display: flex;
+    align-items: stretch;
   }
 
-  /* Number indicators */
+  /* force grid rows to be equal height */
+  .process-grid {
+    grid-auto-rows: 1fr;
+  }
+
+  /* Number indicators - hidden on mobile */
   .process-number {
     position: absolute;
-    top: 0;
+    top: -20px;
     left: 50%;
     transform: translateX(-50%);
     width: 40px;
@@ -303,14 +289,19 @@ const processes = [
     color: white;
     font-weight: bold;
     border-radius: 50%;
-    display: flex;
     align-items: center;
     justify-content: center;
     z-index: 5;
     box-shadow: 0 5px 15px rgba(108, 69, 255, 0.3);
   }
 
-  /* Connectors between cards */
+  @media (min-width: 1280px) {
+    .process-card-wrapper {
+      padding-top: 45px;
+    }
+  }
+
+  /* Connectors between cards - desktop only */
   .process-connector {
     position: absolute;
     top: 20px;
@@ -334,8 +325,8 @@ const processes = [
 
   /* Card styling enhancements */
   :global(.process-grid .process-card) {
-    border-radius: 16px;
-    padding: 30px 25px;
+    border-radius: 12px;
+    padding: 20px 15px;
     background: linear-gradient(145deg, #a788ff, #8e63ff);
     box-shadow: 0 8px 20px rgba(128, 103, 206, 0.15);
     transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
@@ -343,6 +334,13 @@ const processes = [
     overflow: hidden;
     position: relative;
     z-index: 2;
+  }
+
+  @media (min-width: 768px) {
+    :global(.process-grid .process-card) {
+      border-radius: 16px;
+      padding: 30px 25px;
+    }
   }
 
   /* Card inner elements styling */

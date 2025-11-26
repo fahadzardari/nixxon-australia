@@ -65,22 +65,29 @@ const digitalMarketingSlides = [
 
 <Layout title="Digital Marketing - Nixxon Australia">
   <HeroDigitalMarketing />
-
-  <Experience
-    typewriter="Define the Standard  "
-    experience="We Ignite your brand’s success with tailored marketing solutions that deliver measurable impact converting audiences, securing valuable leads, and driving growth with strategic, data-backed executions."
-  />
-  <span class="our-services h-0 w-0"> </span>
-  <VerticalSwiper
-    title="Digital Marketing Services That Set Us Apart"
-    description="Our business strategy is all about keeping up with the latest trends and updates. We make sure to facilitate our customers to the best of our abilities. At NixxonTech, the goal of our team is to provide the service that fulfills the desires of customers effectively."
-    slides={digitalMarketingSlides}
-  />
-  <SwiperSection
-    title="Beyond Strategy The True Art of Marketing"
-    description="We go further than plans and tactics crafting campaigns that blend creativity, data, and vision to create lasting impact and measurable growth."
-    swiperCards={digitalMarketingCards}
-  />
+  <div class="overflow-hidden border-none bg-[#4B00A3]">
+    <div class="rounded-t-[2rem] bg-[#f8f8f8] md:rounded-none">
+      <Experience
+        typewriter="Define the Standard  "
+        experience="We Ignite your brand’s success with tailored marketing solutions that deliver measurable impact converting audiences, securing valuable leads, and driving growth with strategic, data-backed executions."
+      />
+      <span class="our-services h-0 w-0"> </span>
+      <VerticalSwiper
+        title="Digital Marketing Services That Set Us Apart"
+        description="Our business strategy is all about keeping up with the latest trends and updates. We make sure to facilitate our customers to the best of our abilities. At NixxonTech, the goal of our team is to provide the service that fulfills the desires of customers effectively."
+        slides={digitalMarketingSlides}
+      />
+      <SwiperSection
+        title="Beyond Strategy The True Art of Marketing"
+        description="We go further than plans and tactics crafting campaigns that blend creativity, data, and vision to create lasting impact and measurable growth."
+        swiperCards={digitalMarketingCards}
+      />
+    </div>
+  </div>
   <DigitalMarketingAdSpending />
-  <Testimonials />
+  <div class="overflow-hidden border-none bg-[#4B00A3]">
+    <div class="rounded-t-[2rem] bg-[#f8f8f8] md:rounded-none">
+      <Testimonials />
+    </div>
+  </div>
 </Layout>

@@ -62,18 +62,22 @@ const brandingSlides = [
 
 <Layout title="Branding - Nixxon Australia">
   <HeroBranding />
+  <div class="overflow-hidden border-none bg-[#4B00A3]">
+    <div class="rounded-t-[2rem] bg-[#f8f8f8] md:rounded-none">
+      <Experience
+        typewriter="Eye catching Branding   "
+        experience="We create impactful brand identities that go beyond the logo, capturing your business essence across every touchpoint. With creative precision, we craft visuals that build trust, recognition, and lasting impact."
+      />
+      <span class="our-services h-0 w-0"> </span>
+      <VerticalSwiper
+        title="Branding Services That Set Us Apart"
+        description="With our potent branding services, we aim to stand out from the competitors. For accomplishing this aim, an innovative and well-planned strategy is used. This aids in the development of outstanding brand identities that embody the company's essential principles."
+        slides={brandingSlides}
+      />
+      <WonderfulBranding />
+    </div>
+  </div>
 
-  <Experience
-    typewriter="Eye catching Branding   "
-    experience="We create impactful brand identities that go beyond the logo, capturing your business essence across every touchpoint. With creative precision, we craft visuals that build trust, recognition, and lasting impact."
-  />
-  <span class="our-services h-0 w-0"> </span>
-  <VerticalSwiper
-    title="Branding Services That Set Us Apart"
-    description="With our potent branding services, we aim to stand out from the competitors. For accomplishing this aim, an innovative and well-planned strategy is used. This aids in the development of outstanding brand identities that embody the company's essential principles."
-    slides={brandingSlides}
-  />
-  <WonderfulBranding />
   <PresentBrandingPortfolio />
 
   <Testimonials />

@@ -5,21 +5,24 @@ import CommonButton from "./CommonButton.astro";
 
 <section
   id="collaborate-section"
-  class="internal-padding gmd:ap-6 flex items-center overflow-hidden bg-cover bg-no-repeat py-12 text-white lg:py-60 2xl:py-72"
+  class="internal-padding overflow-hidden bg-cover bg-no-repeat py-12 text-white md:flex md:items-center md:gap-6 lg:py-60 2xl:py-72"
 >
-  <div class="flex w-2/3 max-w-[580px] flex-col sm:w-1/2">
+
+  <div class="flex flex-col sm:w-1/2 md:max-w-[580px]">
     <h1
-      class="3xl:text-[90px] 3xl:leading-24 mb-1 sm:mb-3 text-[20px] sm:text-[28px]  leading-10 font-medium text-[#4B00A3] md:mb-7 md:text-[50px] md:leading-10 lg:text-[60px] lg:leading-12 xl:text-[70px] xl:leading-16 2xl:text-[80px] 2xl:leading-20"
+      class="3xl:text-[90px] 3xl:leading-24 mb-1 text-[20px] leading-10 font-medium text-[#4B00A3] sm:mb-3 sm:text-[28px] md:mb-7 md:text-[50px] md:leading-10 lg:text-[60px] lg:leading-12 xl:text-[70px] xl:leading-16 2xl:text-[80px] 2xl:leading-20"
     >
       Collaborate with Us
     </h1>
     <p
-      class="mb-1 sm:mb-4 text-xs sm:text-sm md:mb-8 md:text-lg lg:mb-14 lg:text-xl xl:text-2xl 2xl:text-3xl"
+      class="mb-4 text-lg sm:mb-4 md:mb-8 lg:mb-14 lg:text-xl xl:text-2xl 2xl:text-3xl"
     >
       Share your tech-related business ideas with us. We'll support you
       transform your dreams into reality!
     </p>
-    <CommonButton className="w-fit" href="/about"> Learn More </CommonButton>
+    <CommonButton className="w-full md:w-fit" href="/about">
+      Learn More
+    </CommonButton>
   </div>
 </section>
 
@@ -44,10 +47,15 @@ import CommonButton from "./CommonButton.astro";
 
 <style>
   #collaborate-section {
-    background-image: url("../../assets/home/colloborate-bg-compressed.webp");
-    background-size: 102%;
-    transition: background-size 2s cubic-bezier(0.4, 0, 0.2, 1);
-    background-position: center;
+  }
+
+  @media (min-width: 768px) {
+    #collaborate-section {
+      background-image: url("../../assets/home/colloborate-bg-compressed.webp");
+      background-size: 102%;
+      transition: background-size 2s cubic-bezier(0.4, 0, 0.2, 1);
+      background-position: center;
+    }
   }
 
   #collaborate-section:hover {

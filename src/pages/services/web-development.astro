@@ -78,20 +78,24 @@ const webDevPanels = [
 
 <Layout title="Web Development - Nixxon Australia">
   <HeroWebDev />
-  <Experience
-    typewriter="Engineering Digital Excellence"
-    experience="We create websites that embody elegance, performance, and precision. With every detail refined and every interaction seamless, Nixxon Australia turns your vision into a digital experience that endures and elevates."
-  />
-  <WebDevServices
-    title="Our Standard"
-    description="Crafting excellence across leading web platforms and technologies."
-  />
-  <VerticalSwiper />
-  <SwiperSection
-    title="The Art of Web Development"
-    description="We blend creativity with technology to build websites that are not only functional but also inspiring crafted to engage, perform, and grow with your business."
-    swiperCards={webDevSwiperCards}
-  />
+  <div class="overflow-hidden border-none bg-[#4B00A3]">
+    <div class="rounded-t-[2rem] bg-[#f8f8f8] md:rounded-none">
+      <Experience
+        typewriter="Engineering Digital Excellence"
+        experience="We create websites that embody elegance, performance, and precision. With every detail refined and every interaction seamless, Nixxon Australia turns your vision into a digital experience that endures and elevates."
+      />
+      <WebDevServices
+        title="Our Standard"
+        description="Crafting excellence across leading web platforms and technologies."
+      />
+      <VerticalSwiper />
+      <SwiperSection
+        title="The Art of Web Development"
+        description="We blend creativity with technology to build websites that are not only functional but also inspiring crafted to engage, perform, and grow with your business."
+        swiperCards={webDevSwiperCards}
+      />
+    </div>
+  </div>
   <WebDevPortfolio />
   <Accordion panels={webDevPanels} />
   <Testimonials />

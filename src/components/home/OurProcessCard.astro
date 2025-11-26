@@ -3,18 +3,18 @@ import { Image } from "astro:assets";
 const { title, description, icon, bgArt } = Astro.props;
 ---
 
-<div class="process-card group relative flex flex-col overflow-hidden">
-  <div class="process-icon mb-4">
-    <Image src={icon} alt={title} width={48} height={48} />
+<div class="process-card px-3 py-4 sm:px-4 sm:py-5 md:px-7 md:py-6 group relative flex flex-col overflow-hidden">
+  <div class="process-icon mb-2 sm:mb-3 md:mb-4">
+    <Image src={icon} alt={title} class={"w-[24px] sm:w-[28px] aspect-square md:w-12"} width={48} height={48} />
   </div>
 
   <h3
-    class="process-title mb-2 text-xl font-semibold text-white capitalize 2xl:text-2xl"
+    class="process-title mb-1 md:mb-2 text-sm sm:text-base md:text-xl font-semibold text-white capitalize 2xl:text-2xl"
   >
     {title}
   </h3>
 
-  <p class="process-description text-sm text-white/90">
+  <p class="process-description text-[10px] sm:text-xs md:text-sm text-white/90 leading-tight sm:leading-normal">
     {description}
   </p>
 
@@ -33,9 +33,21 @@ const { title, description, icon, bgArt } = Astro.props;
 
 <style>
   .process-card {
-    border-radius: 16px;
-    padding: 30px 25px;
-    min-height: 280px;
+    border-radius: 12px;
+    min-height: 200px;
+  }
+
+  @media (min-width: 640px) {
+    .process-card {
+      min-height: 240px;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .process-card {
+      border-radius: 16px;
+      min-height: 280px;
+    }
   }
 
   .shine-effect {
@@ -56,8 +68,10 @@ const { title, description, icon, bgArt } = Astro.props;
     z-index: 3;
   }
 
-  .process-card:hover .shine-effect {
-    transform: translateX(100%);
-    transition: transform 1s ease;
+  @media (min-width: 1280px) {
+    .process-card:hover .shine-effect {
+      transform: translateX(100%);
+      transition: transform 1s ease;
+    }
   }
 </style>
