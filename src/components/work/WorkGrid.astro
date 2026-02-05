@@ -23,7 +23,7 @@ const cards: Card[] = [
     description: "In A World Filled With Chemical-Heavy Cleaning Products, Green Nest Was Born To Offer A Gentle, Plant-Based Alternative. The Brand Focuses On Hygiene Products Infused With Organic Ingredients Like Aloe Vera, Tea Tree, And Lime.",
     tags: ["FMCG", "Personal Care", "Herbal Handwash"],
     image: GreenNest,
-    url: "#",
+    url: "/case-studies/green-nest",
   },
   {
     type: "logo",
@@ -62,7 +62,7 @@ const cards: Card[] = [
 
 <header class="mb-12">
   <ul class="text-primary-purple list-disc">
-    <li class="text-lg md:text-xl lg:text-2xl">
+    <li class="text-lg md:text-xl lg:text-2xl mx-4">
       Combine expertise in design, data & strategy to create memorable
       experiences
     </li>
@@ -73,60 +73,40 @@ const cards: Card[] = [
     Crafting and scaling brave digital products
   </h1>
 
+
   <div
     id="work-tabs"
     class="flex flex-wrap gap-8 text-xl font-medium md:text-2xl xl:text-3xl"
   >
-    <button
-      class="tab-btn cursor-pointer transition-all duration-100"
-      data-tab="All"
-    >
-      <span
-        class="tab-name transiton cursor-pointer border-b-[2px] border-[#8067CE] pb-1 text-[#8067CE] duration-150"
-        >All</span
-      >
-      <sup class="-ml-0.5 text-[#8067CE]">12</sup>
-    </button>
-    <button
-      class="tab-btn cursor-pointer transition-all duration-100"
-      data-tab="Logo"
-    >
-      <span
-        class="tab-name transiton cursor-pointer pb-1 text-[#8E8E8E] duration-150"
-        >Logo</span
-      >
-      <sup class="-ml-0.5 text-[#8E8E8E]">03</sup>
-    </button>
-    <button
-      class="tab-btn cursor-pointer transition-all duration-100"
-      data-tab="Website"
-    >
-      <span
-        class="tab-name transiton cursor-pointer pb-1 text-[#8E8E8E] duration-150"
-        >Website</span
-      >
-      <sup class="-ml-0.5 text-[#8E8E8E]">03</sup>
-    </button>
-    <button
-      class="tab-btn cursor-pointer transition-all duration-100"
-      data-tab="Mobile App"
-    >
-      <span
-        class="tab-name transiton cursor-pointer pb-1 text-[#8E8E8E] duration-150"
-        >Mobile App</span
-      >
-      <sup class="-ml-0.5 text-[#8E8E8E]">0</sup>
-    </button>
-    <button
-      class="tab-btn cursor-pointer transition-all duration-100"
-      data-tab="Video Animation"
-    >
-      <span
-        class="tab-name transiton cursor-pointer pb-1 text-[#8E8E8E] duration-150"
-        >Video Animation</span
-      >
-      <sup class="-ml-0.5 text-[#8E8E8E]">03</sup>
-    </button>
+    {(() => {
+      const tabTypes = [
+        { label: 'All', value: 'All' },
+        { label: 'Logo', value: 'logo' },
+        { label: 'Website', value: 'website' },
+        { label: 'Mobile App', value: 'mobile-app' },
+        { label: 'Video Animation', value: 'video-animation' },
+      ];
+      const counts = {
+        All: cards.length,
+        logo: cards.filter(c => c.type === 'logo').length,
+        website: cards.filter(c => c.type === 'website').length,
+        'mobile-app': cards.filter(c => c.type === 'mobile-app').length,
+        'video-animation': cards.filter(c => c.type === 'video-animation').length,
+      };
+      return tabTypes.map((tab, i) => (
+        <button
+          class={`tab-btn cursor-pointer transition-all duration-100`}
+          data-tab={tab.label}
+        >
+          <span
+            class={`tab-name transiton cursor-pointer pb-1 ${i === 0 ? 'border-b-[2px] border-[#8067CE] text-[#8067CE]' : 'text-[#8E8E8E]'} duration-150`}
+          >
+            {tab.label}
+          </span>
+          <sup class={`-ml-0.5 ${i === 0 ? 'text-[#8067CE]' : 'text-[#8E8E8E]'}`}>{String(counts[tab.value]).padStart(2, '0')}</sup>
+        </button>
+      ));
+    })()}
   </div>
 
 
@@ -134,7 +114,7 @@ const cards: Card[] = [
 
 
 
-<div id="work-cards" class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+<div id="work-cards" class="grid grid-cols-1 lg:grid-cols-2 gap-y-8 lg:gap-x-8">
   <!-- Render all cards with data-type for filtering, first one gets col-span-2 -->
   {cards.map((card, index) => (
     <div class={`work-card-item ${index === 0 ? 'col-span-2' : ''}`} data-type={card.type} data-index={index}>
@@ -144,13 +124,34 @@ const cards: Card[] = [
 </div>
 
 <script>
+  import { gsap, ScrollTrigger } from "../../utils/gsapUtils";
   document.addEventListener("DOMContentLoaded", function () {
     const tabs = document.querySelectorAll("#work-tabs .tab-btn");
-    const cardItems = document.querySelectorAll("#work-cards .work-card-item");
+    let cardItems = document.querySelectorAll("#work-cards .work-card-item");
+
+    // GSAP fade-in and upward animation for cards (like ServicesList)
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (!prefersReducedMotion) {
+      gsap.registerPlugin(ScrollTrigger);
+      cardItems.forEach((card, idx) => {
+        gsap.set(card, { opacity: 0, y: 40 });
+        gsap.to(card, {
+          opacity: 1,
+          y: 0,
+          duration: 0.7,
+          delay: idx * 0.08,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: card,
+            start: "top 85%",
+            toggleActions: "play none none none"
+          }
+        });
+      });
+    }
 
     tabs.forEach((tab) => {
       tab.addEventListener("click", function () {
-        // Tab UI
         tabs.forEach((t) => {
           const tabName = t.querySelector(".tab-name");
           const tabSup = t.querySelector("sup");
@@ -187,22 +188,32 @@ const cards: Card[] = [
         // Filtering
         const selected = tab.dataset.tab;
         let firstVisible = true;
-        
-        cardItems.forEach((item) => {
+        cardItems.forEach((item, idx) => {
           const shouldShow = selected === "All" || item.dataset.type === selected.toLowerCase().replace(/ /g, "-");
-          
           if (shouldShow) {
             item.style.display = "";
-            // First visible card gets col-span-2
             if (firstVisible) {
               item.classList.add("col-span-2");
               firstVisible = false;
             } else {
               item.classList.remove("col-span-2");
             }
+            // Animate in again on tab change
+            if (!prefersReducedMotion) {
+              gsap.fromTo(item, { opacity: 0, y: 40 }, {
+                opacity: 1,
+                y: 0,
+                duration: 0.7,
+                delay: idx * 0.08,
+                ease: "power2.out"
+              });
+            }
           } else {
             item.style.display = "none";
             item.classList.remove("col-span-2");
+            if (!prefersReducedMotion) {
+              gsap.set(item, { opacity: 0, y: 40 });
+            }
           }
         });
       });
