@@ -1,0 +1,211 @@
+---
+import CaseStudyCard from "./CaseStudyCard.astro";
+import GreenNest from '../../assets/work/green-nest.png';
+import BrewYouBranding from '../../assets/work/brewyou-branding.png';
+import DebbysPlace from '../../assets/work/debbys-place.png';
+import BrewYouWebsite from '../../assets/work/brewyou-website.png';
+import HalalFood from '../../assets/work/halal-food.png';
+
+type CardType = "logo" | "website" | "mobile-app" | "video-animation";
+type Card = {
+  type: CardType;
+  title: string;
+  description: string;
+  tags: string[];
+  image: any;
+  url: string;
+};
+
+const cards: Card[] = [
+  {
+    type: "logo",
+    title: "Green Nest Organic Hygiene & Skincare",
+    description: "In A World Filled With Chemical-Heavy Cleaning Products, Green Nest Was Born To Offer A Gentle, Plant-Based Alternative. The Brand Focuses On Hygiene Products Infused With Organic Ingredients Like Aloe Vera, Tea Tree, And Lime.",
+    tags: ["FMCG", "Personal Care", "Herbal Handwash"],
+    image: GreenNest,
+    url: "#",
+  },
+  {
+    type: "logo",
+    title: "Brew You Coffee Co. Branding For The Mindful Drinker",
+    description: "Brew You Coffee Co. isn't just about waking up; it's about waking up right. It bridges the gap between the robust kick of artisanal coffee and the calming benefits of herbal infusions.",
+    tags: ["Logo", "Coffee Brand"],
+    image: BrewYouBranding,
+    url: "#",
+  },
+  {
+    type: "website",
+    title: "Debby’s Place A Vibrant Digital Salon Experience",
+    description: "Debby’s Place is a premier hair studio specializing in intricate braiding, wigs, and protective hair styles. Based in Australia, they are known for their creativity and ability to transform looks. They needed a digital essence that matched the boldness and artistry of their services.",
+    tags: ["Website", "UI/UX"],
+    image: DebbysPlace,
+    url: "#",
+  },
+  {
+    type: "website",
+    title: "Brew You Coffee Co. A Sensory Digital Experience",
+    description: "Brew You Coffee Co. is a trendy, artisanal coffee brand that blends traditional roasting with modern herbal wellness. After finalizing their visual identity (logo), they needed a website that wasn’t just an information page, but a digital extension of their physical cafe vibe—warm, inviting, and full of energy.",
+    tags: ["Website", "UI/UX"],
+    image: BrewYouWebsite,
+    url: "#",
+  },
+  {
+    type: "mobile-app",
+    title: "Halal Food: The All-In-One Lifestyle Super App",
+    description: "Halal Food is a modern super app that blends food delivery, lifestyle, and community features for the global halal market. The app needed a clean, intuitive UI/UX and a strong mobile presence.",
+    tags: ["Mobile App", "UI/UX"],
+    image: HalalFood,
+    url: "#",
+  },
+];
+---
+
+<header class="mb-12">
+  <ul class="text-primary-purple list-disc">
+    <li class="text-lg md:text-xl lg:text-2xl">
+      Combine expertise in design, data & strategy to create memorable
+      experiences
+    </li>
+  </ul>
+  <h1
+    class="mt-6 mb-10 text-[52px] leading-[70px] font-semibold text-[#1c1c1c] lg:text-[70px] lg:leading-[80px] xl:text-[78px] xl:leading-[90px] 2xl:text-[86px] 2xl:leading-[100px]"
+  >
+    Crafting and scaling brave digital products
+  </h1>
+
+  <div
+    id="work-tabs"
+    class="flex flex-wrap gap-8 text-xl font-medium md:text-2xl xl:text-3xl"
+  >
+    <button
+      class="tab-btn cursor-pointer transition-all duration-100"
+      data-tab="All"
+    >
+      <span
+        class="tab-name transiton cursor-pointer border-b-[2px] border-[#8067CE] pb-1 text-[#8067CE] duration-150"
+        >All</span
+      >
+      <sup class="-ml-0.5 text-[#8067CE]">12</sup>
+    </button>
+    <button
+      class="tab-btn cursor-pointer transition-all duration-100"
+      data-tab="Logo"
+    >
+      <span
+        class="tab-name transiton cursor-pointer pb-1 text-[#8E8E8E] duration-150"
+        >Logo</span
+      >
+      <sup class="-ml-0.5 text-[#8E8E8E]">03</sup>
+    </button>
+    <button
+      class="tab-btn cursor-pointer transition-all duration-100"
+      data-tab="Website"
+    >
+      <span
+        class="tab-name transiton cursor-pointer pb-1 text-[#8E8E8E] duration-150"
+        >Website</span
+      >
+      <sup class="-ml-0.5 text-[#8E8E8E]">03</sup>
+    </button>
+    <button
+      class="tab-btn cursor-pointer transition-all duration-100"
+      data-tab="Mobile App"
+    >
+      <span
+        class="tab-name transiton cursor-pointer pb-1 text-[#8E8E8E] duration-150"
+        >Mobile App</span
+      >
+      <sup class="-ml-0.5 text-[#8E8E8E]">0</sup>
+    </button>
+    <button
+      class="tab-btn cursor-pointer transition-all duration-100"
+      data-tab="Video Animation"
+    >
+      <span
+        class="tab-name transiton cursor-pointer pb-1 text-[#8E8E8E] duration-150"
+        >Video Animation</span
+      >
+      <sup class="-ml-0.5 text-[#8E8E8E]">03</sup>
+    </button>
+  </div>
+
+
+</header>
+
+
+
+<div id="work-cards" class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+  <!-- Render all cards with data-type for filtering, first one gets col-span-2 -->
+  {cards.map((card, index) => (
+    <div class={`work-card-item ${index === 0 ? 'col-span-2' : ''}`} data-type={card.type} data-index={index}>
+      <CaseStudyCard {...card} />
+    </div>
+  ))}
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const tabs = document.querySelectorAll("#work-tabs .tab-btn");
+    const cardItems = document.querySelectorAll("#work-cards .work-card-item");
+
+    tabs.forEach((tab) => {
+      tab.addEventListener("click", function () {
+        // Tab UI
+        tabs.forEach((t) => {
+          const tabName = t.querySelector(".tab-name");
+          const tabSup = t.querySelector("sup");
+          if (tabName) {
+            tabName.classList.remove(
+              "text-[#8067CE]",
+              "border-b-4",
+              "border-[#8067CE]"
+            );
+            tabName.classList.add("text-[#8E8E8E]");
+            tabName.style.borderBottomWidth = "0px";
+          }
+          if (tabSup) {
+            tabSup.classList.remove("text-[#8067CE]");
+            tabSup.classList.add("text-[#8E8E8E]");
+          }
+        });
+        const tabName = tab.querySelector(".tab-name");
+        const tabSup = tab.querySelector("sup");
+        if (tabName) {
+          tabName.classList.remove("text-[#8E8E8E]");
+          tabName.classList.add(
+            "text-[#8067CE]",
+            "border-b-4",
+            "border-[#8067CE]"
+          );
+          tabName.style.borderBottomWidth = "2px";
+        }
+        if (tabSup) {
+          tabSup.classList.remove("text-[#8E8E8E]");
+          tabSup.classList.add("text-[#8067CE]");
+        }
+
+        // Filtering
+        const selected = tab.dataset.tab;
+        let firstVisible = true;
+        
+        cardItems.forEach((item) => {
+          const shouldShow = selected === "All" || item.dataset.type === selected.toLowerCase().replace(/ /g, "-");
+          
+          if (shouldShow) {
+            item.style.display = "";
+            // First visible card gets col-span-2
+            if (firstVisible) {
+              item.classList.add("col-span-2");
+              firstVisible = false;
+            } else {
+              item.classList.remove("col-span-2");
+            }
+          } else {
+            item.style.display = "none";
+            item.classList.remove("col-span-2");
+          }
+        });
+      });
+    });
+  });
+</script>

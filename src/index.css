@@ -20,6 +20,7 @@ body {
   --color-gradient-start: #9d7eff;
   --color-gradient-end: #8067ce;
   --breakpoint-3xl: 118rem;
+  --color-primary-purple: #8067CE;
 }
 
 .internal-padding {
