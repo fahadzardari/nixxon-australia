@@ -1,0 +1,56 @@
+---
+interface ProcessStep {
+  number: number;
+  title: string;
+  description: string;
+}
+
+interface Props {
+  heading: string;
+  steps: ProcessStep[];
+}
+
+const { heading, steps } = Astro.props;
+---
+
+<div class="internal-padding py-8 lg:py-16">
+  <h2 class="text-4xl lg:text-5xl font-bold text-center mb-16 lg:mb-24">
+    {heading}
+  </h2>
+
+  <div class="relative w-full">
+    <!-- Timeline line - positioned through the middle of circles -->
+    <div class="hidden lg:block absolute left-0 right-0 h-px bg-black top-2/5" style=""></div>
+
+    <!-- Steps grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-0">
+      {steps.map((step, index) => (
+        <div class="relative flex flex-col items-center text-center">
+          <div class="relative z-10 mb-8 lg:mb-0">
+            <div class="flex items-center justify-center w-16 h-16 rounded-full border-4 border-gray-400 bg-white relative transition-all duration-300 hover:border-blue-600">
+              <span class="text-lg font-bold text-gray-700">{step.number}</span>
+            </div>
+          </div>
+
+          <div class="lg:mt-12">
+            <h3 class="text-lg lg:text-xl font-bold text-gray-900 mb-3">
+              {step.title}
+            </h3>
+            <p class="text-sm lg:text-base text-gray-600 leading-relaxed max-w-xs">
+              {step.description}
+            </p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</div>
+
+<style>
+  @media (max-width: 1024px) {
+    /* Responsive adjustments for tablet and mobile */
+    div:has(> .grid) {
+      position: relative;
+    }
+  }
+</style>
