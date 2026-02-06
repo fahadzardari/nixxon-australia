@@ -109,7 +109,6 @@ const cards: Card[] = [
                     { label: "Logo", value: "logo" },
                     { label: "Website", value: "website" },
                     { label: "Mobile App", value: "mobile-app" },
-                    { label: "Video Animation", value: "video-animation" },
                 ];
                 const counts = {
                     All: cards.length,
@@ -117,9 +116,6 @@ const cards: Card[] = [
                     website: cards.filter((c) => c.type === "website").length,
                     "mobile-app": cards.filter((c) => c.type === "mobile-app")
                         .length,
-                    "video-animation": cards.filter(
-                        (c) => c.type === "video-animation",
-                    ).length,
                 };
                 return tabTypes.map((tab, i) => (
                     <button
