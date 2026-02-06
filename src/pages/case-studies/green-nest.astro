@@ -13,6 +13,9 @@ import Visualize from "../../components/work/case-study/Visualize.astro";
 import Image1 from "../../assets/work/green-nest/1.png";
 import Image2 from "../../assets/work/green-nest/2.png";
 import Image3 from "../../assets/work/green-nest/3.png";
+import RewardIcon from "../../assets/icons/reward-icon.svg";
+import RecycleIcon from "../../assets/icons/recycle-icon.svg";
+import EyeIcon from "../../assets/icons/eye-icon.svg";
 ---
 
 <Layout title="Green Nest - Case Study  - Nixxon Australia">
@@ -21,7 +24,30 @@ import Image3 from "../../assets/work/green-nest/3.png";
 
     <CaseStudyIntro title="Introduction" />
 
-    <CaseStudyChallenge title="The Challenge" />
+    <CaseStudyChallenge
+        title="The Challenge"
+        cards={[
+            {
+                title: "Visual Fatigue",
+                paragraph:
+                    "Overcoming the generic leaf cliches prevalent in the eco-friendly sector.",
+                icon: EyeIcon,
+            },
+            {
+                title: "Education",
+                paragraph:
+                    "Communicating the refillable system clearly through packaging design.",
+                icon: RecycleIcon,
+            },
+            {
+                title: "Premium Feel",
+                paragraph:
+                    "balancing earth-friendly materials with a high-end luxury aesthetic.",
+                icon: RewardIcon,
+            },
+        ]}
+        ],
+    />
 
     <LogoAnatomy
         subheading="Constructed from Nature"

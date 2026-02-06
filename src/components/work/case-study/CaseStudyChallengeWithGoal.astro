@@ -30,7 +30,10 @@ const {
 
     <div class="flex flex-col gap-y-8 md:flex-row md:justify-between">
         <div class="flex flex-col gap-y-4 md:w-3/5">
-            <p set:html={paragraph} class="text-sm text-[#535353] lg:text-lg" />
+            <p
+                set:html={paragraph}
+                class="text-sm leading-8 text-[#535353] lg:text-lg"
+            />
             <ul class="">
                 {
                     featuresList &&
@@ -60,16 +63,24 @@ const {
             </ul>
         </div>
 
-        <div class="rounded-[32px] border border-[#9D7EFF] p-6 lg:p-14 bg-[radial-gradient(800px_600px_at_100%_0%,rgba(170,140,255,0.45),rgba(170,140,255,0.15)_30%,transparent_50%),linear-gradient(180deg,#faf8ff_0%,#f5f2ff_100%)]  md:p-8  md:w-2/5 flex flex-col gap-y-4">
-            <h1 class="text-lg text-black font-semibold  md:text-xl xl:text-2xl">The Goal</h1>
+        <div
+            class="flex flex-col gap-y-4 rounded-[32px] border border-[#9D7EFF] bg-[radial-gradient(800px_600px_at_100%_0%,rgba(170,140,255,0.45),rgba(170,140,255,0.15)_30%,transparent_50%),linear-gradient(180deg,#faf8ff_0%,#f5f2ff_100%)] p-6 md:w-2/5 md:p-8 lg:p-14"
+        >
+            <h1 class="text-lg font-semibold text-black md:text-xl xl:text-2xl">
+                The Goal
+            </h1>
 
-            <p class="text-[#373737] text-sm   md:text-base xl:text-lg">
+            <p class="text-sm text-[#373737] md:text-base xl:text-lg">
                 "To create a seamless, automated digital storefront that retains
                 the warmth, vibrancy, and 'girl-talk' energy of the physical
                 salon."
             </p>
 
-            <span class="mt-2 text-[#643DB4] text-sm font-semibold  md:text-base xl:text-lg">  Strategy </span>
+            <span
+                class="mt-2 text-sm font-semibold text-[#643DB4] md:text-base xl:text-lg"
+            >
+                Strategy
+            </span>
         </div>
     </div>
 </div>

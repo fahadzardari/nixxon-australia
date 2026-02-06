@@ -39,6 +39,7 @@ const {
             icon: RewardIcon,
         },
     ],
+    paragraph = null,
 } = Astro.props;
 ---
 
@@ -53,6 +54,15 @@ const {
     >
         {heading}
     </h1>
+
+    {
+        paragraph && (
+            <p
+                set:html={paragraph}
+                class="text-sm leading-8 text-[#535353] lg:text-lg"
+            />
+        )
+    }
 
     <div class="mt-8 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
         {
