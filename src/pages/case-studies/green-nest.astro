@@ -7,24 +7,10 @@ import CollabPic from "../../assets/collab-mobile.png";
 import Image from "astro/components/Image.astro";
 import WorkGrid from "../../components/work/WorkGrid.astro";
 import Testimonials from "../../components/common/Testimonials.astro";
+import CaseStudyHeader from "../../components/work/case-study/CaseStudyHeader.astro";
 ---
 
-<Layout title="Work - Nixxon Australia">
-  <div class="our-services h-80"></div>
-  <div class="overflow-hidden border-none internal-padding py-8">
-      <WorkGrid />
-  </div>
-  <Image
-    src={CollabPic}
-    alt="Collaborate Background"
-    class={"rounded-t-4xl block md:hidden w-full"}
-  />
-
-  <div class="overflow-hidden border-none bg-[#B5B1DE]">
-    <div class="rounded-t-[2rem] md:rounded-none">
-      <Collaborate />
-    </div>
-  </div>
-  <span class="mt-24"></span>
-  <Testimonials />
+<Layout title="Green Nest - Case Study  - Nixxon Australia">
+    <div class="our-services h-20"></div>
+    <CaseStudyHeader />
 </Layout>

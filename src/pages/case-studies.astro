@@ -10,21 +10,21 @@ import Testimonials from "../components/common/Testimonials.astro";
 ---
 
 <Layout title="Case Studies - Nixxon Australia">
-  <div class="our-services h-20  md:h-40 lg:h-60"></div>
-  <div class="overflow-hidden border-none internal-padding py-8">
-      <WorkGrid />
-  </div>
-  <Image
-    src={CollabPic}
-    alt="Collaborate Background"
-    class={"rounded-t-4xl block md:hidden w-full"}
-  />
-
-  <div class="overflow-hidden border-none bg-[#B5B1DE]">
-    <div class="rounded-t-[2rem] md:rounded-none">
-      <Collaborate />
+    <div class="our-services h-20 md:h-40 lg:h-60"></div>
+    <div class="internal-padding overflow-hidden border-none py-8">
+        <WorkGrid />
     </div>
-  </div>
-  <span class="mt-24"></span>
-  <Testimonials />
+    <Image
+        src={CollabPic}
+        alt="Collaborate Background"
+        class={"rounded-t-4xl block md:hidden w-full"}
+    />
+
+    <div class="overflow-hidden border-none bg-[#B5B1DE]">
+        <div class="rounded-t-[2rem] md:rounded-none">
+            <Collaborate />
+        </div>
+    </div>
+    <span class="mt-24"></span>
+    <Testimonials />
 </Layout>
