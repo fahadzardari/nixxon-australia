@@ -9,6 +9,11 @@ import DesignApproach from "../../components/work/case-study/DesignApproach.astr
 import RewardIcon from "../../assets/icons/reward-icon.svg";
 import RecycleIcon from "../../assets/icons/recycle-icon.svg";
 import EyeIcon from "../../assets/icons/eye-icon.svg";
+import DebbyCard from "../../components/work/case-study/DebbyCard.astro";
+import ImageOne from "../../assets/work/debbys-place/1.png";
+import ImageTwo from "../../assets/work/debbys-place/2.png";
+import ImageThree from "../../assets/work/debbys-place/3.png";
+import ImageFour from "../../assets/work/debbys-place/4.png";
 ---
 
 <Layout title="Green Nest - Case Study  - Nixxon Australia">
@@ -62,4 +67,31 @@ import EyeIcon from "../../assets/icons/eye-icon.svg";
             },
         ]}
     />
+
+    <div class="internal-padding grid grid-cols-1 gap-8 py-8 md:grid-cols-2">
+        <DebbyCard
+            title="Visual Service Menu"
+            paragraph="Cards with clear imagery help clients identify styles (Braids, Cornrows, etc.) without needing technical knowledge."
+            image={ImageOne}
+        />
+        <div class="md:translate-y-14">
+            <DebbyCard
+                title="Trust & Clarity"
+                paragraph="Icon-driven value propositions and a collapsible FAQ section reduce support inquiries by 60%."
+                image={ImageTwo}
+            />
+        </div>
+        <DebbyCard
+            title="Strong Call-to-Actions"
+            paragraph="Strategically placed booking buttons with high contrast backgrounds ensure conversion paths are never missed."
+            image={ImageThree}
+        />
+        <div class="md:translate-y-14">
+            <DebbyCard
+                title="Mobile Optimization"
+                paragraph="Since 85% of traffic comes from Instagram, the site is fully responsive with touch-friendly navigation."
+                image={ImageFour}
+            />
+        </div>
+    </div>
 </Layout>
