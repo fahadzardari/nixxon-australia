@@ -10,6 +10,9 @@ import Testimonials from "../../components/common/Testimonials.astro";
 import CaseStudyHeader from "../../components/work/case-study/CaseStudyHeader.astro";
 import CaseStudyIntro from "../../components/work/case-study/CaseStudyIntro.astro";
 import CaseStudyChallenge from "../../components/work/case-study/CaseStudyChallenge.astro";
+import ResultSection from "../../components/work/case-study/ResultSection.astro";
+import PersonImage from "../../assets/icons/person-image.png";
+import LogoAnatomy from "../../components/work/case-study/LogoAnatomy.astro";
 ---
 
 <Layout title="Green Nest - Case Study  - Nixxon Australia">
@@ -18,6 +21,16 @@ import CaseStudyChallenge from "../../components/work/case-study/CaseStudyChalle
 
     <CaseStudyIntro title="Introduction" />
 
-    <CaseStudyChallenge title="The Challenge"   />
-   
+    <CaseStudyChallenge title="The Challenge" />
+
+    <LogoAnatomy />
+
+    <ResultSection
+        title="Conclusion"
+        heading="The Result"
+        quote="The new identity perfectly captures the essence of our mission. it feels clean, trustworthy, and premium. since the rebrand, our direct-to-consumer sales have increased by 40%."
+        personName="Elena Rossi"
+        personTitle="Founder, Green Nest"
+        personImage={PersonImage}
+    />
 </Layout>
