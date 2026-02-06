@@ -15,6 +15,9 @@ import ImageThree from "../../assets/work/halal-foods/3.png";
 import ImageFour from "../../assets/work/halal-foods/4.png";
 import CaseStudyChallenge from "../../components/work/case-study/CaseStudyChallenge.astro";
 import Image from "astro/components/Image.astro";
+import Location from "../../assets/icons/location.png";
+import Plus from "../../assets/icons/plus.png";
+import Filter from "../../assets/icons/filter.png";
 ---
 
 <Layout title="Green Nest - Case Study  - Nixxon Australia">
@@ -71,13 +74,13 @@ import Image from "astro/components/Image.astro";
     />
 
     <div
-        class="internal-padding flex flex-col gap-4 bg-[#4B00A3] py-8 text-white md:flex md:flex-row lg:py-16"
+        class="internal-padding flex flex-col gap-y-8 md:gap-y-0 md:gap-x-8  bg-[#4B00A3] py-8 text-white md:flex md:flex-row lg:py-16"
     >
-        <div class="relative md:w-1/2">
+        <div class="relative md:w-1/2 order-2 md:order-1">
             <Image
                 src={ImageFour}
                 alt="Halal Food App Feature Highlights"
-                class="z-20 mx-auto rounded-lg"
+                class="relative z-20 mx-auto rounded-lg"
             />
             <div
                 class="absolute inset-0 z-0 m-auto aspect-square w-full rounded-full bg-[#570CB1]"
@@ -88,7 +91,7 @@ import Image from "astro/components/Image.astro";
             >
             </div>
         </div>
-        <div class="flex flex-col gap-x-2 md:w-1/2">
+        <div class="flex flex-col gap-x-2 md:w-1/2 order-1 md:order-2">
             <span
                 class="mb-4 text-lg font-semibold text-[#C5B3FF] capitalize md:text-xl"
             >
@@ -103,6 +106,70 @@ import Image from "astro/components/Image.astro";
                 The launch of the Halal Food redesign saw immediate positive
                 feedback regarding its usability and aesthetic appeal.
             </p>
+            <ul class="flex flex-col gap-y-4">
+                <li class="inline-flex gap-4">
+                    <Image
+                        src={Plus}
+                        alt="Halal Food App Location Feature"
+                        class="h-12 w-12"
+                    />
+
+                    <div>
+                        <h3
+                            class="text-base font-semibold lg:text-lg xl:text-xl 2xl:text-2xl"
+                        >
+                            Pharmacy Integration
+                        </h3>
+                        <p class="mt-1 text-sm lg:text-lg">
+                            A specialized vertical for health products, ensuring
+                            that even over- the-counter medicines comply with
+                            Halal standards, filtering out gelatin-based
+                            products automatically.
+                        </p>
+                    </div>
+                </li>
+                <li class="inline-flex gap-4">
+                    <Image
+                        src={Filter}
+                        alt="Halal Food App Location Feature"
+                        class="h-12 w-12"
+                    />
+
+                    <div>
+                        <h3
+                            class="text-base font-semibold lg:text-lg xl:text-xl 2xl:text-2xl"
+                        >
+                            Location-Based Discovery
+                        </h3>
+                        <p class="mt-1 text-sm lg:text-lg">
+                            Global search capabilities allow users to find
+                            specific ingredients, restaurant names, or service
+                            categories instantly from the home dashboard.
+                        </p>
+                    </div>
+                </li>
+                <li class="inline-flex gap-4">
+                    <Image
+                        src={Location}
+                        alt="Halal Food App Location Feature"
+                        class="h-12 w-12"
+                    />
+
+                    <div>
+                        <h3
+                            class="text-base font-semibold lg:text-lg xl:text-xl 2xl:text-2xl"
+                        >
+                            Seamless Search & Filter
+                        </h3>
+                        <p class="mt-1 text-sm lg:text-lg">
+                            Smart geolocation features automatically surface
+                            relevant Halal options. The header integrates the
+                            Hijri date, grounding the utility in the user's
+                            cultural context.
+                        </p>
+                    </div>
+                </li>
+            </ul>
         </div>
     </div>
 
