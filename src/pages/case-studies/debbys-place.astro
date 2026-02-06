@@ -2,18 +2,13 @@
 import Layout from "../../layouts/Layout.astro";
 import CaseStudyHeader from "../../components/work/case-study/CaseStudyHeader.astro";
 import CaseStudyIntro from "../../components/work/case-study/CaseStudyIntro.astro";
-import CaseStudyChallenge from "../../components/work/case-study/CaseStudyChallenge.astro";
-import ResultSection from "../../components/work/case-study/ResultSection.astro";
-import PersonImage from "../../assets/icons/person-image.png";
-import LogoAnatomy from "../../components/work/case-study/LogoAnatomy.astro";
-import Pallete from "../../components/work/case-study/Pallete.astro";
-import Typography from "../../components/work/case-study/Typography.astro";
-import Visualize from "../../components/work/case-study/Visualize.astro";
-import Image1 from "../../assets/work/brew-you-coffee/1.png";
-import Image2 from "../../assets/work/brew-you-coffee/2.png";
-import Image3 from "../../assets/work/brew-you-coffee/3.png";
 import CoverDebby from "../../assets/work/debbys-place/cover.png";
 import CaseStudyChallengeWithGoal from "../../components/work/case-study/CaseStudyChallengeWithGoal.astro";
+import DesignApproach from "../../components/work/case-study/DesignApproach.astro";
+
+import RewardIcon from "../../assets/icons/reward-icon.svg";
+import RecycleIcon from "../../assets/icons/recycle-icon.svg";
+import EyeIcon from "../../assets/icons/eye-icon.svg";
 ---
 
 <Layout title="Green Nest - Case Study  - Nixxon Australia">
@@ -40,6 +35,31 @@ import CaseStudyChallengeWithGoal from "../../components/work/case-study/CaseStu
             "<strong>Overwhelming manual booking via DMs.</strong>",
             "<strong>No centralized gallery for specific styles.</strong>",
             "<strong>Pricing and service transparency issues.</strong>",
+        ]}
+    />
+
+    <DesignApproach
+        title="Design Approach"
+        heading="Crafting the experience"
+        cards={[
+            {
+                title: "Bold Color Strategy",
+                paragraph:
+                    "We utilized a vibrant Hot Pink (#E91E63) as the primary action color to evoke energy and femininity, balanced by clean whites and dark grays to maintain readability and professionalism.",
+                icon: EyeIcon,
+            },
+            {
+                title: "Dynamic Hero Layout",
+                paragraph:
+                    "A polaroid-style collage in the hero section immediately showcases the diversity of styles and real client results, building trust instantly before the user even scrolls.",
+                icon: RecycleIcon,
+            },
+            {
+                title: "Clean Typography",
+                paragraph:
+                    "Mixing Great Vibes for script accents to mimic a personal signature with the robust Inter font family for Ul elements ensures the site is legible yet full of character.",
+                icon: RewardIcon,
+            },
         ]}
     />
 </Layout>
