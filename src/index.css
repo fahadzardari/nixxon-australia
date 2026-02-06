@@ -94,3 +94,14 @@ video {
     user-select: none;
     -webkit-user-select: none;
 }
+
+@font-face {
+  font-family: "Coral Candy";
+  src: url("../public/fonts/coral-candy.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.font-coral-candy {
+  font-family: "Coral Candy", sans-serif;
+}

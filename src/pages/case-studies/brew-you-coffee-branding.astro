@@ -6,44 +6,61 @@ import CaseStudyChallenge from "../../components/work/case-study/CaseStudyChalle
 import ResultSection from "../../components/work/case-study/ResultSection.astro";
 import PersonImage from "../../assets/icons/person-image.png";
 import LogoAnatomy from "../../components/work/case-study/LogoAnatomy.astro";
-import GreenNestLogo from "../../assets/work/green-nest-logo.png";
 import Pallete from "../../components/work/case-study/Pallete.astro";
 import Typography from "../../components/work/case-study/Typography.astro";
 import Visualize from "../../components/work/case-study/Visualize.astro";
-import Image1 from "../../assets/work/green-nest/1.png";
-import Image2 from "../../assets/work/green-nest/2.png";
-import Image3 from "../../assets/work/green-nest/3.png";
+import Image1 from "../../assets/work/brew-you-coffee/1.png";
+import Image2 from "../../assets/work/brew-you-coffee/2.png";
+import Image3 from "../../assets/work/brew-you-coffee/3.png";
+import CoverBrew from "../../assets/work/brew-you-coffee/cover.png";
+import LogoBrew from "../../assets/work/brew-you-coffee/logo.png";
 ---
 
 <Layout title="Green Nest - Case Study  - Nixxon Australia">
     <div class="our-services h-20"></div>
-    <CaseStudyHeader />
+    <CaseStudyHeader
+        title="Brew You Coffee Co. Branding"
+        description="Brew You Coffee Co. isn't just about waking up; it's about waking up right. It bridges the gap between the robust kick of artisanal coffee and the calming benefits of herbal infusions."
+        tags={["Logo", "Coffee Brand"]}
+        image={CoverBrew}
+        url="/case-studies/brew-you-coffee-branding"
+        subtitle="Branding for the Mindful Drinker"
+    />
 
-    <CaseStudyIntro title="Introduction" />
+    <CaseStudyIntro
+        title="Introduction"
+        heading="Coffee, Reimagined."
+        paragraph="Brew You Coffee Co. isn't just about waking up; it's about waking up right. It bridges the gap between the robust kick of artisanal coffee and the calming benefits of herbal infusions.<br><br> Targeting health-conscious professionals and creatives, the brand needed an identity that stepped away from the aggressive 'hustle culture' of traditional coffee shops and embraced a slower, more mindful ritual."
+    />
 
-    <CaseStudyChallenge title="The Challenge" />
+    <CaseStudyChallenge
+        title="The Challenge"
+        heading="Breaking the Brown Stereotype."
+        paragraph="Most coffee brands use dark browns, blacks, and sharp, aggressive fonts to denote strength. However, Brew You is an herbal blend (gentle on the gut, anxiety-free).<br><br><span class='font-bold text-black'>The Goal:</span> Design a visual identity that feels 'Full-Bodied' and satisfying (like coffee) but also 'Calm and Organic' (like tea). The challenge was to blend these two opposing vibes into one cohesive mark."
+    />
 
     <LogoAnatomy
-        subheading="Constructed from Nature"
-        paragraph="The logo symbol combines the protective shape of a nest with the sprouting energy of a leaf. The circular motion implies the cycle of reuse and sustainability."
-        logoImage={GreenNestLogo}
+        subheading="Merging nature with the bean."
+        paragraph="The logo icon is a mathematical fusion of a coffee bean and a tea leaf. it represents the organic growth of the plant and the precision of the roast. the geometry is soft and circular, avoiding sharp eadges to maintain that “mindful” aesthetic."
+        logoImage={LogoBrew}
         featuresList={[
-            "Geometric Precision (Golden Ratio)",
-            "Minimalist Line Weight",
-            "Scalable for Small Print",
+            "<strong>The Coffee Bean (Outline):</strong> The structural outline represents the foundation—high-quality roasted coffee beans.",
+            "<strong>The Leaf (Solid Fill):</strong> The blue leaf creates the core of the icon, symbolizing the herbal infusion (Mint, CBD, or Adaptogens) that cools down the caffeine 'jitters.'",
+            "<strong>The Connection:</strong> The leaf grows out of the bean, signifying that this is a natural evolution of traditional coffee.",
         ]}
     />
 
     <Pallete
         colors={[
-            { name: "Fresh Green", hex: "#7AC71F" },
-            { name: "Deep Forest", hex: "#05402E" },
+            { name: "Sage Green", hex: "#9DA773" },
+            { name: "Serene Blue", hex: "#BDD3E8" },
             { name: "Cloud White", hex: "#f8fcf8" },
         ]}
     />
 
-    <Typography
-       
+    <Typography 
+        fontName="Coral Candy"
+        fontTag="font-coral-candy"
     />
 
     <Visualize
@@ -55,9 +72,9 @@ import Image3 from "../../assets/work/green-nest/3.png";
     <ResultSection
         title="Conclusion"
         heading="The Result"
-        quote="The new identity perfectly captures the essence of our mission. it feels clean, trustworthy, and premium. since the rebrand, our direct-to-consumer sales have increased by 40%."
-        personName="Elena Rossi"
-        personTitle="Founder, Green Nest"
+        quote="“Working with the design team transformed our business from a local roaster to a lifestyle brand. The ‘mindful’ aesthetic isn’t just a look it’s how our customers feel when they hold our bag.”"
+        personName="Marcus Chen"
+        personTitle="Founder, Brew You Coffee Co."
         personImage={PersonImage}
     />
 </Layout>
