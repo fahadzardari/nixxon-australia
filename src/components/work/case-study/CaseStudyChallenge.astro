@@ -5,6 +5,7 @@ interface Props {
     title?: string;
     heading?: string;
     paragraph?: string;
+    featuresList?: string[];
 }
 import RewardIcon from "../../../assets/icons/reward-icon.svg";
 import RecycleIcon from "../../../assets/icons/recycle-icon.svg";
@@ -13,6 +14,7 @@ const {
     title = "The Challenge",
     heading = "Standing Out On The Shelf.",
     paragraph = 'Supermarket shelves are dominated by clinical white and blue bottles (like Dettol or Lifebuoy). Green Nest wanted to target the premium, eco-conscious consumer. <br><br> <span class="font-bold text-black">The Brief:</span> Design a logo that screams "Organic" and "Freshness" instantly. The visual identity had to promise that the product cleans hands but keeps skin soft and moisturized.',
+    featuresList = null,
 } = Astro.props;
 ---
 
@@ -21,14 +23,11 @@ const {
         {title}
     </span>
     <h1
-        class="text-5xl mb-4 font-semibold text-black md:text-4xl md:leading-tight lg:text-5xl xl:text-6xl 2xl:text-[68px]"
+        class="mb-4 text-5xl font-semibold text-black md:text-4xl md:leading-tight lg:text-5xl xl:text-6xl 2xl:text-[68px]"
     >
         {heading}
     </h1>
-    <p
-        set:html={paragraph}
-        class="text-sm text-[#535353] lg:text-lg"
-    />
+    <p set:html={paragraph} class="text-sm text-[#535353] lg:text-lg" />
 
     <div class="mt-8 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
         <ChallengeCard

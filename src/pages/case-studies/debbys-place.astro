@@ -1,0 +1,45 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import CaseStudyHeader from "../../components/work/case-study/CaseStudyHeader.astro";
+import CaseStudyIntro from "../../components/work/case-study/CaseStudyIntro.astro";
+import CaseStudyChallenge from "../../components/work/case-study/CaseStudyChallenge.astro";
+import ResultSection from "../../components/work/case-study/ResultSection.astro";
+import PersonImage from "../../assets/icons/person-image.png";
+import LogoAnatomy from "../../components/work/case-study/LogoAnatomy.astro";
+import Pallete from "../../components/work/case-study/Pallete.astro";
+import Typography from "../../components/work/case-study/Typography.astro";
+import Visualize from "../../components/work/case-study/Visualize.astro";
+import Image1 from "../../assets/work/brew-you-coffee/1.png";
+import Image2 from "../../assets/work/brew-you-coffee/2.png";
+import Image3 from "../../assets/work/brew-you-coffee/3.png";
+import CoverDebby from "../../assets/work/debbys-place/cover.png";
+import CaseStudyChallengeWithGoal from "../../components/work/case-study/CaseStudyChallengeWithGoal.astro";
+---
+
+<Layout title="Green Nest - Case Study  - Nixxon Australia">
+    <div class="our-services h-20"></div>
+    <CaseStudyHeader
+        title="Debby’s Place"
+        tags={["Web Design", "Development"]}
+        image={CoverDebby}
+        url="/case-studies/debbys-place"
+        subtitle="A Vibrant Digital Salon Experience"
+    />
+
+    <CaseStudyIntro
+        title="The Vision"
+        heading="Where Style Meets Comfort."
+        paragraph="Debby's Place isn't just a salon; it's a sanctuary for self-expression. Known for their intricate braiding and warm atmosphere, they needed a digital presence that reflected the duality of their brand: high-end professional styling wrapped in a comforting, welcoming environment.<br><br>The existing customer journey relied heavily on Instagram DMs, which was becoming unmanageable. The goal was to build a centralized hub that automated booking while showcasing the artistry of their work."
+    />
+
+    <CaseStudyChallengeWithGoal
+        title="The Challenge"
+        heading="Sealing Personal Touch"
+        paragraph="Transitioning from a social-media-first business to a standalone platform carried a risk: losing the personal connection clients loved. We needed to solve operational inefficiencies without making the brand feel corporate or cold."
+        featuresList={[
+            "<strong>Overwhelming manual booking via DMs.</strong>",
+            "<strong>No centralized gallery for specific styles.</strong>",
+            "<strong>Pricing and service transparency issues.</strong>",
+        ]}
+    />
+</Layout>

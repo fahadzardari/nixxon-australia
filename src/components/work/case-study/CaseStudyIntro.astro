@@ -13,17 +13,15 @@ const {
 ---
 
 <div class="internal-padding py-8">
-    <span
-        class="mb-4 text-lg font-semibold text-[#643DB4] md:text-xl"
-    >
+    <span class="mb-4 text-lg font-semibold text-[#643DB4] md:text-xl">
         {title}
     </span>
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
         <h1
-            class="text-5xl md:leading-tight font-semibold text-black md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-[68px]"
+            class="text-5xl font-semibold text-black md:text-4xl md:leading-tight lg:text-5xl xl:text-6xl 2xl:text-[68px]"
         >
             {heading}
         </h1>
-        <p class="text-[#535353] text-sm lg:text-lg" set:html={paragraph} />
+        <p class="text-sm text-[#535353] lg:text-lg" set:html={paragraph} />
     </div>
 </div>
