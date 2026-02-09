@@ -3,6 +3,7 @@ import "../../index.css";
 import Layout from "../../layouts/Layout.astro";
 import HeroWebDev from "../../components/web-development/HeroWebDev.astro";
 import Experience from "../../components/home/Experience.astro";
+import Portfolio from "../../components/home/Portfolio.astro";
 import Accordion from "../../components/common/Accordion.astro";
 import SwiperSection from "../../components/common/SwiperSection.astro";
 import { webDevSwiperCards } from "../../data/swipers";
@@ -96,7 +97,7 @@ const webDevPanels = [
             />
         </div>
     </div>
-    <WebDevPortfolio />
+    <Portfolio filterType="website" header={true} hideFilters={true} pageTitle="Web Development Projects" />
     <Accordion panels={webDevPanels} />
     <Testimonials />
 </Layout>

@@ -9,6 +9,7 @@ import Testimonials from "../../components/common/Testimonials.astro";
 import HeroMobileApp from "../../components/mobile-application/HeroMobileApp.astro";
 import Innovation from "../../components/mobile-application/Innovation.astro";
 import SuccessRecord from "../../components/mobile-application/SuccessRecord.astro";
+import Portfolio from "../../components/home/Portfolio.astro";
 import VerticalImage1 from "../../assets/mobile-application/vert-1.png";
 import VerticalImage2 from "../../assets/mobile-application/vert-2.png";
 import VerticalImage3 from "../../assets/mobile-application/vert-3.png";
@@ -84,7 +85,8 @@ const mobileSlides = [
             />
         </div>
     </div>
-    <Innovation />
-    <SuccessRecord />
+    <!-- <Innovation /> -->
+    <!-- <SuccessRecord /> -->
+    <Portfolio filterType="mobile-app" header={true} hideFilters={true} pageTitle="Mobile App Projects" />
     <Testimonials />
 </Layout>
